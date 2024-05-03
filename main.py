@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QHBo
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import Qt, QUrl
 from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QFont
 from bs4 import BeautifulSoup
 import requests
 import sqlite3
@@ -12,7 +13,6 @@ os.environ["QT_LOGGING_RULES"] = "*.warn=false"
 from about import AboutDialog
 
 
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -21,6 +21,7 @@ class MainWindow(QMainWindow):
         self.setWindowIcon(QIcon('icon.png'))
         self.setGeometry(100, 100, 800, 600)  # Set window position and size
         self.setStyleSheet("background-color: #b9b0b0;")  # Set background color of main window
+
 
         # Central widget and layout
         central_widget = QWidget()
@@ -33,13 +34,14 @@ class MainWindow(QMainWindow):
 
         # Title label
         self.title_label = QLabel("Web Scraper Application", self)
-        self.title_label.setStyleSheet("color: white; font-size: 18px; padding: 10px; background-color: #2c2f33; font-weight: bold; font-family: Arial, sans-serif;")
+        gradient_color = "qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(90, 25, 155, 0.25), stop:1 rgba(0, 32, 240, 0.25));"  
+        self.title_label.setStyleSheet("color: black; font-size: 24px; padding: 10px; background-color: " + gradient_color + " font-weight: bold; font-family: Arial, sans-serif;")
         title_layout.addWidget(self.title_label)
 
         # Button to toggle the task bar
         self.toggle_button = QPushButton("MENU")
         self.toggle_button.setIcon(QIcon("menu.png"))
-        self.toggle_button.setStyleSheet("background-color: #7289da; color: #fff; font-weight: bold; font-size: 18px;")  # Set button color
+        self.toggle_button.setStyleSheet("QPushButton {""background-color: #7289da; ""color: #fff; ""font-weight: bold; ""font-size: 18px; ""}""QPushButton:hover {""background-color: #4e6eff; ""}")  
         self.toggle_button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         self.toggle_button.clicked.connect(self.toggle_task_bar)
         title_layout.addWidget(self.toggle_button)
@@ -72,7 +74,16 @@ class MainWindow(QMainWindow):
         button_names = [("HOME", "home.png"), ("SCRAPE", "scrape.png"), ("VIEW", "view.png"), ("ABOUT", "about.png"), ("QUIT","quit.png")]  # Add more button names as needed
         for name, icon_filename in button_names:
             button = QPushButton(name)
-            button.setStyleSheet("background-color: #7289da; color: #fff; font-weight: bold; font-size: 18px;")
+            button.setStyleSheet("QPushButton {"
+                         "background-color: #7289da; "
+                         "color: #fff; "
+                         "font-weight: bold; "
+                         "font-size: 18px; "
+                         "text-align: left; "
+                         "}"
+                         "QPushButton:hover {"
+                         "background-color: #4e6eff; "
+                         "}")
             button.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
             if name == "QUIT":
                 button.clicked.connect(self.quit_application)
@@ -124,14 +135,15 @@ class MainWindow(QMainWindow):
         home_layout = QVBoxLayout(self.home_page)
         home_layout.setAlignment(Qt.AlignCenter)
 
-        home_text_label = QLabel("\t Introducing WebWeaver - your digital arachnid companion in the vast online jungle! \n\t\t      WebWeaver scours the web, capturing valuable data. \n So say goodbye to manual data collection and hello to WebWeaver, your trusty web-scraping sidekick!", self.home_page)
-        home_text_label.setStyleSheet("color: black; font-size: 24px; font-family: Gougy old")
-        home_layout.addWidget(home_text_label)
-
         home_image_label = QLabel(self.home_page)
         pixmap = QPixmap("WS.png")  # Replace "your_image.png" with the filename of your PNG image
         home_image_label.setPixmap(pixmap)
         home_layout.addWidget(home_image_label , alignment=Qt.AlignCenter)
+
+        home_text_label = QLabel("\n\t Introducing WebWeaver - your digital arachnid companion in the vast online jungle! \n\t\t      WebWeaver scours the web, capturing valuable data. \n So say goodbye to manual data collection and hello to WebWeaver, your trusty web-scraping sidekick!\n", self.home_page)
+        home_text_label.setFont(QFont('New courier',10))
+        home_text_label.setStyleSheet("color: black; font-size: 24px; font-weight: bold; background-color: #CBCBCB; border: 1px solid;")
+        home_layout.addWidget(home_text_label)
 
         layout.addWidget(self.home_page)
 
@@ -147,7 +159,7 @@ class MainWindow(QMainWindow):
         scrape_layout.addWidget(self.url_line_edit)
 
         scrape_button = QPushButton("Scrape", self.scrape_page)
-        scrape_button.setStyleSheet("background-color: #7289da; color: white; font-weight: bold; font-size: 18px;")
+        scrape_button.setStyleSheet("QPushButton {""background-color: #7289da; ""color: white; ""font-weight: bold; ""font-size: 18px; ""}""QPushButton:hover {""background-color: #4e6eff; ""}")
         scrape_button.clicked.connect(self.scrape_website)
         scrape_layout.addWidget(scrape_button)
 
@@ -203,7 +215,7 @@ class MainWindow(QMainWindow):
 
         # Button to select previously scraped websites
         select_button = QPushButton("Select Previous Scrapes", self.view_page)
-        select_button.setStyleSheet("background-color: #7289da; color: white; font-weight: bold; font-size: 18px;")
+        select_button.setStyleSheet("QPushButton {""background-color: #7289da; ""color: white; ""font-weight: bold; ""font-size: 18px; ""}""QPushButton:hover {""background-color: #4e6eff; ""}")
         select_button.clicked.connect(self.select_previous_scrapes)
         view_layout.addWidget(select_button)
 
