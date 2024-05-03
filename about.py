@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QPushButton, QSizePolicy
+from PyQt5.QtCore import QPropertyAnimation, QEasingCurve
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIcon
 
@@ -8,7 +9,7 @@ class AboutDialog(QDialog):
         self.setWindowTitle("About Web Scraper Application")
         self.setWindowIcon(QIcon('icon.png'))
         self.setGeometry(200, 200, 400, 200)  # Set dialog position and size
-        self.setStyleSheet("background-color: #999090; font-weight: bold;")  # Set background color of dialog
+        self.setStyleSheet("background-color: #CBCBCB; font-weight: bold;")  # Set background color of dialog
 
         # Dialog layout
         dialog_layout = QVBoxLayout(self)
@@ -30,6 +31,8 @@ class AboutDialog(QDialog):
 
         # Close button
         close_button = QPushButton("Close", self)
-        close_button.setStyleSheet("background-color: #7289da; color: #fff; font-weight: bold; font-size: 18px;")
+        close_button.setStyleSheet("QPushButton {" "background-color: #7289da; ""color: #fff; ""font-weight: bold; ""font-size: 18px; ""}""QPushButton:hover {" "background-color: #4e6eff; ""}")
         close_button.clicked.connect(self.close)
         dialog_layout.addWidget(close_button)
+
+
