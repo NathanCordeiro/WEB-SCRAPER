@@ -36,9 +36,9 @@
    <h3>Installation</h3>
     <ol>
         <li>Clone the repository:</li>
-        <code>git clone https://github.com/your_username/web-scraper.git</code>
+        <code>git clone https://github.com/NathanCordeiro/WEB-SCRAPER.git</code>
         <li>Navigate to the project directory:</li>
-        <code>cd web-scraper</code>
+        <code>cd WEB-SCRAPER</code>
         <li>Install the required dependencies:</li>
         <code>pip install -r requirements.txt</code>
     </ol>
@@ -75,4 +75,4 @@
 
    <h2>Contact</h2>
     <p>Nathan Cordeiro - <a>nathanjohncordeiro@gmail.com</a></p>
-    <p>Project Link: <a href="https://github.com/NathanCordeiro/web-scraper">https://github.com/your_username/web-scraper</a></p>
+    <p>Project Link: <a href="https://github.com/NathanCordeiro/WEB-SCRAPER">https://github.com/your_username/web-scraper</a></p>
