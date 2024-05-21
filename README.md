@@ -74,5 +74,5 @@
    <hr>
 
    <h2>Contact</h2>
-    <p>Your Name - <a href="https://twitter.com/twitter_handle">@twitter_handle</a> - email@example.com</p>
-    <p>Project Link: <a href="https://github.com/your_username/web-scraper">https://github.com/your_username/web-scraper</a></p>
+    <p>Nathan Cordeiro - <a>nathanjohncordeiro@gmail.com</a></p>
+    <p>Project Link: <a href="https://github.com/NathanCordeiro/web-scraper">https://github.com/your_username/web-scraper</a></p>
