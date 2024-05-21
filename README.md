@@ -69,7 +69,7 @@
    <hr>
 
   <h2>License</h2>
-    <p>Distributed under the MIT License. See <code>LICENSE</code> for more information.</p>
+    <p>Distributed under the MIT License. See <a href="LICENSE">LICENSE</a> for more information.</p>
 
    <hr>
 
