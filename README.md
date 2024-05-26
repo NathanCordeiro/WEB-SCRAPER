@@ -75,4 +75,4 @@
 
    <h2>Contact</h2>
     <p>Nathan Cordeiro - <a>nathanjohncordeiro@gmail.com</a></p>
-    <p>Project Link: <a href="https://github.com/NathanCordeiro/WEB-SCRAPER">https://github.com/your_username/web-scraper</a></p>
+    <p>Project Link: <a href="https://github.com/NathanCordeiro/WEB-SCRAPER">https://github.com/NathanCordeiro/WEB-SCRAPER</a></p>
